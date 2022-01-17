@@ -1,0 +1,17 @@
+.main-view {    
+    display: block;
+    &-btn-init{        
+        position: relative;
+        padding-top: 2.5%;
+        display: flex;  
+        justify-content: center;  
+    }      
+    &-btns{               
+        position: relative;        
+        justify-content: center;
+        align-items: center;
+        text-align: center;                
+        top: 50vh        
+    }      
+
+}

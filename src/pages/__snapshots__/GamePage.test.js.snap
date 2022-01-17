@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gamepage component test Display and compare the html of wrapper 1`] = `"<div size=\\"250\\" color=\\"#fff\\" class=\\"sc-fFeiMQ IEkuh trinity-rings-spinner\\" style=\\"position: absolute; left: 45%; top: 40%; color: white;\\"><div class=\\"circle circle1\\"></div><div class=\\"circle circle2\\"></div><div class=\\"circle circle3\\"></div></div><h1 id=\\"title-wait\\" style=\\"text-align: center;\\">Please wait... Drawing card for the players</h1>"`;
