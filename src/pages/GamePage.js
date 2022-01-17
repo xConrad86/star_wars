@@ -12,6 +12,16 @@ import { getCard } from '../api/ApiFunction';
 import { useStyles } from '../components/styles/styles';
 import ObjCard from './../components/Game/Card'
 
+const getFontSize = () => {
+    if(window.innerWidth > 1368){
+       return  '2.5rem'
+    } else if (window.innerWidth > 80){
+        return  '1.5rem'
+    } else {
+        return  '0.95rem'
+    }
+
+}
 
 const GamePage = (props) => {
     const [isLoading, setIsLoading] = useState(true)    
@@ -146,7 +156,7 @@ const GamePage = (props) => {
                         />                               
                         <h1 
                             id='title-wait'
-                            style={{textAlign:'center'}}>
+                            style={{textAlign:'center', fontSize: getFontSize()}}>
                             Please wait... Drawing card for the { isEmptyObject(firstCard) ? 'players' : 'computer'}
                         </h1>
                     </React.Fragment>
@@ -178,7 +188,7 @@ const GamePage = (props) => {
                 style={{gap:'2vw'}}
               >
                 <Typography
-                    style={{fontSize:'2.5rem'}}                    
+                    style={{fontSize: getFontSize()}}                    
                     > 
                     Mode: {gameType}
                 </Typography> 
@@ -198,7 +208,7 @@ const GamePage = (props) => {
                 style={{gap:'2vw'}}                       
               >
                 <Typography
-                    style={{fontSize:'2.5rem'}}                    
+                    style={{fontSize: getFontSize()}}                    
                     > 
                     Card type: {gameObjType}
                 </Typography> 
@@ -210,12 +220,12 @@ const GamePage = (props) => {
               </Box> 
             
               <Typography
-                style={{fontSize:'2.5rem'}}                    
+                style={{fontSize: getFontSize()}}                                 
                 > 
                   Player one wins: {playerOneWins}
               </Typography>                 
               <Typography
-                style={{fontSize:'2.5rem'}}                    
+                style={{fontSize: getFontSize()}}                    
                 > 
                  {gameType === 'single' ? 
                     'CPU wins: ' + playerTwoWins : 'Player two wins: ' + playerTwoWins

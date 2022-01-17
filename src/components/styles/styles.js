@@ -20,12 +20,12 @@ export const useStyles = makeStyles({
       }
     },
     cardStyle: {
-        height: '33rem',
+        maxHeight: '33rem',
         width: '20rem',
         color: 'inherit'
     }, 
     emptyCardStyle: {
-        height: '33rem',
+        maxHeight: '33rem',
         width: '20rem',
         backgroundColor: 'black',
         color: '#FFF'

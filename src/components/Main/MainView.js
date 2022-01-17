@@ -30,6 +30,7 @@ const MainView = () => {
                 <Intro/> 
                 <div className='main-view-btn-init'>
                   <button 
+                    id='play-button'
                     onClick={() => handlePlayClick(introVisible)}>
                     Let's play !
                   </button>

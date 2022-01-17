@@ -94,15 +94,14 @@ export default ObjCard;
 const EmptyCard = () => {
      const classes = useStyles()
      return (
-       <Card
-          key={'emptyCard'}
+       <Card          
           className={classes.emptyCardStyle}
           >
           <CardHeader
               title={'Unknown'}               
           />
          <CardActionArea>
-           <CardMedia
+           <CardMedia             
              component="img"
              image={unknown}
              title={"noname"}           
