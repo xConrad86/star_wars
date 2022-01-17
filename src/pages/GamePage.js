@@ -37,11 +37,11 @@ const GamePage = (props) => {
     const handleChangeGameType = (gameType) => {      
         return alert('Not available in demo version, sorry :-)')        
         //demo versio without extra features
-        let newGameType = 'single'
-        if(gameType === 'single'){
-            newGameType = 'multi'
-        }
-        setGameType(newGameType)
+    //    let newGameType = 'single'
+    //    if(gameType === 'single'){
+    //        newGameType = 'multi'
+    //    }
+    //    setGameType(newGameType)
     }
 
     const handleChangeGameObjType = (gameObjType) => {           
