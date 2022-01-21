@@ -9,7 +9,8 @@ const containerStyles = {
 }
 
 const Intro = () => {
-    return <Crawl containerStyles={containerStyles}                
+    return <Crawl 
+            containerStyles={containerStyles}                
             title="Episode I"
             subTitle="A New Developer"
             text="It's happend in old, forgotten galaxy. Developers were fighting with each other

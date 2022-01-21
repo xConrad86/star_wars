@@ -3,7 +3,7 @@ import { getApiQuery } from './ApiQuery'
 import axios from 'axios'
 import { getRandomPage, getRandomRecord } from "../utils/Functions";
 
-export const getCard = async ({ gameObjType, handleIsLoading, handleError, handleCard, cardType}) => {    
+export const getCard = async ({ gameObjType, handleError, handleCard, cardType}) => {    
     let card = {};
     let cards = [];
     let response_Arr;
@@ -24,9 +24,6 @@ export const getCard = async ({ gameObjType, handleIsLoading, handleError, handl
     }
     catch(error){
         handleError(error)        
-    } 
-    finally{
-        handleIsLoading(false)
-    }
+    }    
 }
 
