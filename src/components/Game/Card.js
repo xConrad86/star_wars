@@ -17,13 +17,10 @@ import { useStyles } from '../styles/styles';
 
 const ObjCard = ({type, card, gameType, gameObjType}) => {
     const [isReverseSide, setReverseSide] = useState(false) 
-    const classes = useStyles()
-    
-    useEffect(() => {        
-    }, [card, isReverseSide])
+    const classes = useStyles()    
 
     return (
-        <div key={type}>
+        <React.Fragment>            
             {isEmptyObject(card) === false ? (    
                 isReverseSide ? 
                 <Card className={classes.CardStyle}>
@@ -34,7 +31,7 @@ const ObjCard = ({type, card, gameType, gameObjType}) => {
                         }
                     />
                     <CardContent>
-                        {Object.keys(card).map((c) => (<Typography style={{fontSize:'0.95rem'}}>{c}: {card[c]}</Typography> ))}                                                                           
+                        {Object.keys(card).map((c) => (<Typography className={classes.game_typography_body}>{c}: {card[c]}</Typography> ))}                                                                           
                     </CardContent>
                     <CardActions>       
                         <Button
@@ -50,6 +47,7 @@ const ObjCard = ({type, card, gameType, gameObjType}) => {
                 <Card           
                     className={classes.CardStyle}>
                     <CardHeader
+                        className={classes.game_typography_title}
                         title=
                         {type === 'first' ? 'Player One' : 
                             ( gameType === 'single' ? 'CPU' : 'Player Two')
@@ -59,17 +57,19 @@ const ObjCard = ({type, card, gameType, gameObjType}) => {
                         <CardMedia                        
                             component="img"
                             image={ type === 'second' ? darthVader : yoda}
-                            title={card.name}          
+                            title={card.name}    
+                            className={classes.img}      
                         ></CardMedia>
                         <CardContent>
-                            <Typography>Name: {card.name}</Typography>  
+                            <Typography className={classes.game_typography_body}
+                                >Name: {card.name}</Typography>  
                             { 
                                 gameObjType === 'people' ? 
-                                <Typography>Mass: {card.mass}</Typography>          
+                                <Typography className={classes.game_typography_body}
+                                >Mass: {card.mass}</Typography>          
                                 :
-                                <Typography>Crew: {card.crew}</Typography>          
-                            }          
-                            
+                                <Typography className={classes.game_typography_body}>Crew: {card.crew}</Typography>          
+                            }                                      
                         </CardContent>
                     </CardActionArea>
         
@@ -85,7 +85,7 @@ const ObjCard = ({type, card, gameType, gameObjType}) => {
                 </Card>)
                 : <EmptyCard/>
             }
-        </div>
+        </React.Fragment>
       )
   } 
 
@@ -98,17 +98,19 @@ const EmptyCard = () => {
           className={classes.emptyCardStyle}
           >
           <CardHeader
+              className={classes.game_typography_title}
               title={'Unknown'}               
           />
          <CardActionArea>
            <CardMedia             
              component="img"
              image={unknown}
-             title={"noname"}           
+             title={"noname"}    
+             className={classes.img}             
            ></CardMedia>
            <CardContent>
-             <Typography>Name: Unknown</Typography>
-             <Typography>Mass/Crew: Unknown</Typography>
+             <Typography className={classes.game_typography_body}>Name: Unknown</Typography>
+             <Typography className={classes.game_typography_body}>Mass/Crew: Unknown</Typography>
            </CardContent>
          </CardActionArea>
   

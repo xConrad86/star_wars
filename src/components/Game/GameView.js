@@ -18,10 +18,10 @@ const GameView = ({handleError}) => {
     const [secondCard, setSecondCard] = useState({})    
     const [playerOneWins, setPlayerOneWins] = useState(0)
     const [playerTwoWins, setPlayerTwoWins] = useState(0)    
-
     const classes = useStyles()        
-    const handleChangeGameType = (gameType) => {      
-        if(process.env.APP_MODE === 'demo') {
+
+    const handleChangeGameType = (gameType) => {          
+        if(process.env.NODE_ENV !== 'production') {
            return alert('Not available in demo version, sorry :-)')        
         } else {
            let newGameType = 'single'
@@ -41,8 +41,7 @@ const GameView = ({handleError}) => {
         clearCards()
     }        
 
-    const handleCard = (type, card) => {  
-        
+    const handleCard = (type, card) => {          
         if(type==='first'){
             setFirstCard(card);            
         } else if (type==='second') {
@@ -64,7 +63,7 @@ const GameView = ({handleError}) => {
                     if(isEmptyObject(secondCard)){
                         getCards('second');                                       
                     }
-                }, 2000);
+                }, 1000);
             }
         }, 1000);        
        
@@ -126,19 +125,10 @@ const GameView = ({handleError}) => {
     return (
         <Container>              
              <Grid container
-                spacing={0}
-                direction="column"
-                alignItems="center"
-                justifyContent="center"
-                style={{ height: '30vh'}}                
-                >
+                className={classes.main_grid}     
+             >
               <Box 
-                spacing={0}
-                direction="row"
-                alignItems="center"
-                justifyContent="center"     
-                display='flex'     
-                style={{gap:'2vw'}}
+                className={classes.game_box}
               >
                 <Typography
                     className={classes.game_typography}
@@ -147,18 +137,13 @@ const GameView = ({handleError}) => {
                 </Typography> 
                 <Button
                    className={classes.buttonMode}                    
-                   onClick={() => handleChangeGameType}
+                   onClick={() => handleChangeGameType()}
                 >
                     Change
                 </Button>                
               </Box> 
               <Box 
-                spacing={0}
-                direction="row"
-                alignItems="center"
-                justifyContent="center"     
-                display='flex'   
-                style={{gap:'2vw'}}                       
+                className={classes.game_box}                       
               >
                 <Typography
                     className={classes.game_typography}                    
@@ -186,11 +171,8 @@ const GameView = ({handleError}) => {
               </Typography>                   
             </Grid>  
             <Grid container
-                spacing={0}
-                direction="row"
-                alignItems="center"
-                justifyContent="center"
-                style={{ height: '10vh'}}                
+                className={classes.game_grid}                
+                style={{ height: '10vh', gap: '0vw'}}                
                 >               
                 <Button
                    id='play-again' 
@@ -202,14 +184,10 @@ const GameView = ({handleError}) => {
                 </Button>      
             </Grid>           
             <Grid container
-                spacing={0}
-                direction="row"
-                alignItems="center"
-                justifyContent="center"
-                style={{ height: '60vh', gap:'2vw'}}                
-                >                                               
-                <ObjCard type={'first'} card={firstCard} gameType={gameType} gameObjType={gameObjType}/>                          
-                <ObjCard type={'second'} card={secondCard} gameType={gameType} gameObjType={gameObjType}/>                          
+                className={classes.game_grid}            
+            >                                               
+              <ObjCard type={'first'} card={firstCard} gameType={gameType} gameObjType={gameObjType}/>                          
+              <ObjCard type={'second'} card={secondCard} gameType={gameType} gameObjType={gameObjType}/>                          
             </Grid>
         </Container>         
     )
